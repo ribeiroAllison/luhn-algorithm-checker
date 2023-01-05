@@ -1,0 +1,14 @@
+{
+  "name": "luhnalgotithmchecker",
+  "version": "1.0.0",
+  "description": "Program to check if array of numbers pass Luhn Algorithm test",
+  "main": "luhnChecker.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Allison Ribeiro",
+  "license": "ISC"
+}
