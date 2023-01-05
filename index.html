@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resources/style.css">
+    <title>Luhn Algorithm Checker</title>
+</head>
+<body>
+    <header class="card">
+        <h1>Check if a series of number can pass the Luhn algorithm logic!</h1>
+    </header>
+    <section >
+        <div class="card text">
+            <h2>What is the Luhn Algorithm?</h2>
+            <p>The Luhn algorithm or Luhn formula, also known as the "modulus 10" 
+                or "mod 10" algorithm, named after its creator, IBM scientist Hans Peter Luhn, 
+                is a simple checksum formula used to validate a variety of identification numbers, 
+                such as credit card numbers, IMEI numbers, National Provider Identifier numbers in the United States, 
+                Canadian social insurance numbersamong others</p>
+            <p>Find more information about it <a href="https://en.wikipedia.org/wiki/Luhn_algorithm">here</a>:</p>
+        </div >
+        <div class="card text" id="buttons">
+            <h3>Examples of valid and invalid numbers:</h3>
+            <div>
+                <button>Valid Number Generator</button>
+                <button>Invalid Number Generator</button>
+            </div>
+        </div>
+    </section>
+    <main>
+        
+
+        <div id="results" class="card text">
+            <div>
+                <h3>Your Number:</h3>
+                <input type="number" placeholder="Type your number here" id="numberInput">
+                <button id="testButton" onclick="getResult()">Test!</button>
+            </div>
+            <div>
+                <h3>Results:</h3>
+                <textarea disabled id="resultBox"></textarea>
+            </div>
+        </div>
+        
+    </main>
+<script src="./domHandler.js" type="module"> </script>
+</body>
+</html>
