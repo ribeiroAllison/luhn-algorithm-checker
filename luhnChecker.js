@@ -25,7 +25,7 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 // Creating a validity checker based on Luhn algorithm:
 const LuhnChecker = {
-    _cardNumber: valid1,
+    _cardNumber: [],
 
     set cardNumber(array){
         return this._cardNumber = array;
@@ -63,22 +63,40 @@ const LuhnChecker = {
 
     adjValid () {
         const array = this.newValid();
-        return array.map(number => {
+        const adjArray = array.map(number => {
             if(number > 9){
                 return number - 9;
             } else{
                 return number;
             }
         })
+        return adjArray.slice(0, -1);
     },
 
-    extractLastDigit () {
+    sumUp () {
         const array = this.adjValid();
-        return array.splice(-1, 1)
+        const arraySum = array.reduce((a, b) => a + b);
+        const digit = this.ckeckDigit()
+        return arraySum + digit;
+        
+    },
+
+    check () {
+        const result = this.sumUp();
+        if(result % 10 === 0){
+            return true;
+        } else {
+            return false;
+        }
+        
+        
     }
 
 }
 
-console.log(LuhnChecker.extractLastDigit());
+LuhnChecker.cardNumber = valid1;
+
+console.log(LuhnChecker.check());
 
 module.exports = LuhnChecker;
+

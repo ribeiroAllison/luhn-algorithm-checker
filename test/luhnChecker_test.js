@@ -50,23 +50,6 @@ describe('LuhnChecker', () =>{
         })
     });
 
-    describe('.extractLastDigit', () =>{
-        it('extracts last digit from array resulted from calling .adjValid()', () =>{
-            //setup
-            const inputArray = [6,2,5,1];
-            LuhnChecker.cardNumber = inputArray;
-            LuhnChecker.newValid();
-            LuhnChecker.adjValid();
-            const expectedResult = [1]
-
-            //exercise
-            const result = LuhnChecker.extractLastDigit();
-
-            //verify
-            assert.deepStrictEqual(result, expectedResult);
-            
-        })
-    })
 
     
 })
