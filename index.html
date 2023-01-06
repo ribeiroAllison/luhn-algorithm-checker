@@ -24,8 +24,8 @@
         <div class="card text" id="buttons">
             <h3>Examples of valid and invalid numbers:</h3>
             <div>
-                <button>Valid Number Generator</button>
-                <button>Invalid Number Generator</button>
+                <button id="valid">Valid Number Generator</button>
+                <button id="invalid">Invalid Number Generator</button>
             </div>
         </div>
     </section>
@@ -33,10 +33,13 @@
         
 
         <div id="results" class="card text">
-            <div>
+            <div id="number">
                 <h3>Your Number:</h3>
-                <input type="text" placeholder="Type your number here" id="numberInput">
-                <button id="testButton">Test!</button>
+                <input type="number" placeholder="Type only numbers" id="numberInput">
+                <div id="test">
+                    <button id="testButton">Test!</button>
+                    <button id="erase">Clear!</button>
+                </div>
             </div>
             <div>
                 <h3>Results:</h3>

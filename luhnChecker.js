@@ -68,6 +68,10 @@ const LuhnChecker = {
 
 }
 
+
+//DOM EVENTS HANDLERS
+
+
 const makeArray = string =>{
     const array = [];
     for(number of string){
@@ -76,18 +80,64 @@ const makeArray = string =>{
     return array;
 }
 
-const getResult = () =>{
+const inputNumber = document.getElementById('numberInput');
+const textArea = document.getElementById('resultBox');
 
-    const stringNumber = document.getElementById('numberInput').value;
+const getResult = () =>{
+    const stringNumber = inputNumber.value;
     
     LuhnChecker.cardNumber = makeArray(stringNumber);
     const result = LuhnChecker.check();
-    document.getElementById('resultBox').value = result;
+    ;
+
+    if(result === true){
+        textArea.value = 'Your number PASSED a Lohn Algorithm test!'
+        textArea.style.backgroundColor = '#5454f8';
+        textArea.style.color = 'white';
+        
+    } else{
+        textArea.value = 'Your number FAILED a Lohn Algorithm test!'
+        textArea.style.backgroundColor = 'crimson';
+        textArea.style.color = 'white';
+    }
     
 }
 
 const resultButton = document.getElementById('testButton');
 resultButton.addEventListener('click', getResult);
+
+
+
+
+
+const randomIndex = Math.floor(Math.random() * 4);
+
+const pushValid = () =>{
+    const validArray = ['4539677908016808', '5535766768751439', '371612019985236', '6011144340682905' ]
+    inputNumber.value = validArray[randomIndex];
+    
+}
+
+const validButton = document.getElementById('valid');
+validButton.addEventListener('click', pushValid);
+
+const pushInvalid = () =>{
+    const invalidArray = ['453277877109179', '55795593392134643', '556794593392134648', '4815162342' ]
+    inputNumber.value = invalidArray[randomIndex];
+
+}
+
+const invalidButton = document.getElementById('invalid');
+invalidButton.addEventListener('click', pushInvalid);
+
+const erase = () =>{
+    inputNumber.value = null;
+    textArea.value = '';
+    textArea.style.backgroundColor = 'white';
+}
+
+const clearButton = document.getElementById('erase');
+clearButton.addEventListener('click', erase);
 
 module.exports = LuhnChecker;
 

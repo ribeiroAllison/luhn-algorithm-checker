@@ -84,4 +84,14 @@ input, textarea{
     font-size: 1.5rem;
 }
 
+#number{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
+}
+
+#test{
+    margin-top: 10px;
+    
+}
