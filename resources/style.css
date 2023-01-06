@@ -72,6 +72,13 @@ button:hover{
     }
 }
 
+@media only screen and (max-width: 900px){
+    
+    .card.text{
+        height: 320px;
+    }
+}
+
 #results{
     width: 70%;
     margin: 20px auto;
@@ -122,6 +129,26 @@ input, textarea{
 
     #results textarea{
         width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    
+    #results{
+        
+        width: 90%;
+        margin-top: 40px;
+        height: 100%;
+
+    }
+
+    #results textarea{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #test{
         margin-bottom: 10px;
     }
 }
