@@ -1,6 +1,7 @@
-const LuhnChecker = require('../luhnChecker.js');
 
 const assert = require('assert');
+
+const LuhnChecker = require('../luhnChecker.js')
 
 describe('LuhnChecker', () =>{
     describe('.checkDigit', () =>{

@@ -68,5 +68,30 @@ const LuhnChecker = {
 
 }
 
+const makeArray = string =>{
+    const array = [];
+    for(number of string){
+        array.push(Number(number));
+    }
+    return array;
+}
+
+const getResult = () =>{
+
+    const stringNumber = document.getElementById('numberInput').value;
+    
+    LuhnChecker.cardNumber = makeArray(stringNumber);
+    const result = LuhnChecker.check();
+    document.getElementById('resultBox').value = result;
+    
+}
+
+const resultButton = document.getElementById('testButton');
+resultButton.addEventListener('click', getResult);
+
 module.exports = LuhnChecker;
+
+
+
+
 
