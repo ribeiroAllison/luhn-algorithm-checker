@@ -1,13 +1,13 @@
-const LuhnChecker = {
-    _cardNumber: [],
+const LuhnChecker = { //object with all properties and methods to perform the Luhn Algorithm test
+    _cardNumber: [], //array of numbers to be checked
 
     set cardNumber(array){
         return this._cardNumber = array;
-    },
+    }, //setter
     
 
     ckeckDigit () {
-        return this._cardNumber[this._cardNumber.length -1]
+        return this._cardNumber[this._cardNumber.length -1] // get last digit from original array
     },
 
     newValid () {
@@ -35,7 +35,7 @@ const LuhnChecker = {
 
     },
 
-    adjValid () {
+    adjValid () {  //check if any number after .newValid() is bigger than 9, if it is subtract 9 from it
         const array = this.newValid();
         const adjArray = array.map(number => {
             if(number > 9){
@@ -44,18 +44,18 @@ const LuhnChecker = {
                 return number;
             }
         })
-        return adjArray.slice(0, -1);
+        return adjArray.slice(0, -1); // delete the last number from the resulting array
     },
 
-    sumUp () {
+    sumUp () {  //sum all numbers of the array resulted from .adjValid()
         const array = this.adjValid();
         const arraySum = array.reduce((a, b) => a + b);
-        const digit = this.ckeckDigit()
-        return arraySum + digit;
+        const digit = this.ckeckDigit() //last digit from original array
+        return arraySum + digit; // add the check digit to the resulting sum
         
     },
 
-    check () {
+    check () { // if the final number % 0 iquals 0 return true, otherwise return false
         const result = this.sumUp();
         if(result % 10 === 0){
             return true;
@@ -69,10 +69,11 @@ const LuhnChecker = {
 }
 
 
-//DOM EVENTS HANDLERS
+
+// DOM EVENTS HANDLERS
 
 
-const makeArray = string =>{
+const makeArray = string =>{ //transform a string into a number array
     const array = [];
     for(number of string){
         array.push(Number(number));
@@ -80,22 +81,22 @@ const makeArray = string =>{
     return array;
 }
 
-const inputNumber = document.getElementById('numberInput');
-const textArea = document.getElementById('resultBox');
+const inputNumber = document.getElementById('numberInput'); // variable storing the input where the number is provided by user
+const textArea = document.getElementById('resultBox'); // variable storing the textarea where the result will be printed
 
-const getResult = () =>{
+const getResult = () =>{ // sets LuhnChecker.cardnumber to be value of input and calls LuhnChecker.check() on it
     const stringNumber = inputNumber.value;
     
     LuhnChecker.cardNumber = makeArray(stringNumber);
     const result = LuhnChecker.check();
     ;
 
-    if(result === true){
+    if(result === true){ // test passed
         textArea.value = 'Your number PASSED a Lohn Algorithm test!'
         textArea.style.backgroundColor = 'green';
         textArea.style.color = 'white';
         
-    } else{
+    } else{ // test failed
         textArea.value = 'Your number FAILED a Lohn Algorithm test!'
         textArea.style.backgroundColor = 'red';
         textArea.style.color = 'white';
@@ -104,34 +105,35 @@ const getResult = () =>{
 }
 
 const resultButton = document.getElementById('testButton');
-resultButton.addEventListener('click', getResult);
+resultButton.addEventListener('click', getResult); // set button call getResult() function
 
 
 
 
 
-const randomIndex = Math.floor(Math.random() * 4);
+const randomIndex = Math.floor(Math.random() * 4); //random number from 1 to 3
 
-const pushValid = () =>{
+const pushValid = () =>{ // sets the inputNumber.value to be one element of a passing test array
     inputNumber.value = null;
     const validArray = ['4539677908016808', '5535766768751439', '371612019985236', '6011144340682905' ]
-    inputNumber.value = validArray[randomIndex];
+    inputNumber.value = validArray[randomIndex]; 
     
 }
 
 const validButton = document.getElementById('valid');
 validButton.addEventListener('click', pushValid);
 
-const pushInvalid = () =>{
+const pushInvalid = () =>{ // sets the inputNumber.value to be one element of a failing array
+    inputNumber.value = null;
     const invalidArray = ['453277877109179', '55795593392134643', '556794593392134648', '4815162342' ]
-    inputNumber.value = invalidArray[randomIndex];
+    inputNumber.value = invalidArray[randomIndex]; 
 
 }
 
 const invalidButton = document.getElementById('invalid');
 invalidButton.addEventListener('click', pushInvalid);
 
-const erase = () =>{
+const erase = () =>{ // erase data from input fields
     inputNumber.value = null;
     textArea.value = '';
     textArea.style.backgroundColor = 'white';
