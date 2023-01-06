@@ -113,6 +113,7 @@ resultButton.addEventListener('click', getResult);
 const randomIndex = Math.floor(Math.random() * 4);
 
 const pushValid = () =>{
+    inputNumber.value = null;
     const validArray = ['4539677908016808', '5535766768751439', '371612019985236', '6011144340682905' ]
     inputNumber.value = validArray[randomIndex];
     
@@ -134,6 +135,7 @@ const erase = () =>{
     inputNumber.value = null;
     textArea.value = '';
     textArea.style.backgroundColor = 'white';
+    location.reload();
 }
 
 const clearButton = document.getElementById('erase');
