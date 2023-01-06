@@ -92,12 +92,12 @@ const getResult = () =>{
 
     if(result === true){
         textArea.value = 'Your number PASSED a Lohn Algorithm test!'
-        textArea.style.backgroundColor = '#5454f8';
+        textArea.style.backgroundColor = 'green';
         textArea.style.color = 'white';
         
     } else{
         textArea.value = 'Your number FAILED a Lohn Algorithm test!'
-        textArea.style.backgroundColor = 'crimson';
+        textArea.style.backgroundColor = 'red';
         textArea.style.color = 'white';
     }
     

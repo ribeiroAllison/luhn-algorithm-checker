@@ -131,6 +131,8 @@ input, textarea{
         width: 100%;
         margin-bottom: 10px;
     }
+
+
 }
 
 @media only screen and (max-width: 900px){
@@ -144,7 +146,7 @@ input, textarea{
     }
 
     #results textarea{
-        width: 100%;
+        width: 90%;
         margin-bottom: 10px;
     }
 
